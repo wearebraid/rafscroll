@@ -1,0 +1,33 @@
+{
+  "name": "rafscroll",
+  "version": "1.0.0",
+  "description": "Eased scrolling (smooth scroll) with requestAnimationFrame",
+  "main": "lib/rafscroll.js",
+  "scripts": {
+    "build": "./node_modules/.bin/babel src -d lib && ./node_modules/.bin/webpack -p",
+    "examples-dev": "./node_modules/.bin/webpack --progress --colors --watch"
+  },
+  "keywords": [
+    "smooth",
+    "scrolling",
+    "raf",
+    "requestanimationframe",
+    "scroll"
+  ],
+  "author": "Justin Schroeder",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^7.1.1",
+    "babel-cli": "^6.24.1",
+    "babel-loader": "^7.1.0",
+    "babel-preset-env": "^1.5.2",
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "node-sass": "^4.5.3",
+    "postcss-loader": "^2.0.6",
+    "resolve-url-loader": "^2.0.3",
+    "sass-loader": "^6.0.6",
+    "webpack": "^3.0.0"
+  }
+}

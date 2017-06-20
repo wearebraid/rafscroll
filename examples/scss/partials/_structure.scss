@@ -1,0 +1,106 @@
+body {
+  font-family: 'Arimo', sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+
+  @include bp('>s') {
+    font-size: 18px;
+  }
+
+  @include bp('>m') {
+    font-size: 20px;
+  }
+
+  @include bp('>l') {
+    font-size: 22px;
+  }
+
+  @include bp('>xl') {
+    font-size: 24px;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2.2em;
+  line-height: 1.1;
+
+  @include bp('>s') {
+    font-size: 3em;
+  }
+}
+
+p {
+  line-height: 1.4;
+  margin-bottom: 1.5em;
+}
+
+header {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 1em;
+
+  @include bp ('>1044px') {
+    padding: 1em calc(50% - 500px);
+  }
+}
+
+aside {
+  background-color: #f3f3f3;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  margin-bottom: 1em;
+
+  @include bp('>m') {
+    order: 2;
+    top: 1.5em;
+    width: 300px;
+  }
+}
+
+article {
+  margin: 0 auto 2em auto;
+  max-width: 30em;
+  padding: 0 1em;
+
+  @include bp('>m') {
+    margin: 0 2em 0 0;
+  }
+
+  @include bp('>1000px') {
+    padding: 0;
+  }
+}
+
+footer {
+  background-color: rgba(0, 0, 0, .05);
+  font-size: .9em;
+  padding: 2em;
+
+  @include bp('>m') {
+    font-size: .7em;
+  }
+}
+
+.content {
+  margin: 0 auto;
+  max-width: 1000px;
+
+  @include bp('>m') {
+    align-items: flex-start;
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,29 @@
+.nav {
+  list-style-type: none;
+  margin: 0 auto;
+  max-width: 30em;
+  padding: 1em;
+
+  li {
+    display: inline-block;
+    margin-right: .5em;
+    
+    @include bp ('>m') {
+      display: block;
+      margin-bottom: .25em;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+      margin-right: 0;
+    }
+  }
+
+  a {
+    color: DeepSkyBlue;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
