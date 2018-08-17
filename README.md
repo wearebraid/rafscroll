@@ -14,9 +14,9 @@ _Note: This readme assumes you are using a build tool like [webpack](https://web
 First install from NPM or yarn:
 
 ```sh
-npm install rafscroll
+npm install @wearebraid/rafscroll
 - or -
-yarn add rafscroll
+yarn add @wearebraid/rafscroll
 ```
 
 Then import/require the library in your front end code:
@@ -24,7 +24,7 @@ Then import/require the library in your front end code:
 ```js
 // main.js
 
-import rafscroll from 'rafscroll'
+import rafscroll from '@wearebraid/rafscroll'
 ```
 
 Rafscroll exports a function. Calling this function creates a new instance of
@@ -43,7 +43,7 @@ the default element, and the the default easing is quadratic.
 A full example:
 
 ```js
-import rafscroll from 'rafscroll'
+import rafscroll from '@wearebraid/rafscroll'
 
 // Scroll 100px down the page after 1 second.
 setTimeout(async () => {

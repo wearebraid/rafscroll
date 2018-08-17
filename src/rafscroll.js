@@ -219,5 +219,8 @@ class RequestAnimationFrameScroll {
 }
 
 export default function (el) {
-  return new RequestAnimationFrameScroll(el || document.documentElement || document.body)
+  if (typeof window !== 'undefined' && !el) {
+    el = document.documentElement || document.body
+  }
+  return new RequestAnimationFrameScroll(el)
 }
