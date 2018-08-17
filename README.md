@@ -5,7 +5,7 @@ browser’s native `requestAnimationFrame`, ensuring optimal scrolling without
 impacting site performance. Rafscroll can operate on both the x and y axis
 with various easing functions.
 
-[Demo here](https://wearebraid.com)
+[Demo here](https://rafscroll.wearebraid.com/)
 
 ## Get Started
 

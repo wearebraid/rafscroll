@@ -83,7 +83,7 @@ class RequestAnimationFrameScroll {
       timeEnd: timeStart + (duration || this.options.duration),
       duration: duration || this.options.duration,
       ease: this.getEasing(),
-      prop: prop
+      prop
     }
     return this.animate()
   }
@@ -219,5 +219,5 @@ class RequestAnimationFrameScroll {
 }
 
 export default function (el) {
-  return new RequestAnimationFrameScroll(el || document.body)
+  return new RequestAnimationFrameScroll(el || document.documentElement || document.body)
 }

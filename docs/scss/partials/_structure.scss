@@ -104,3 +104,44 @@ footer {
     justify-content: center;
   }
 }
+
+.credit {
+  border-left: 2px solid rgba(0, 0, 0, .1);
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, .6);
+  display: block;
+  font-size: 14px;
+  margin: 0 auto 2em;
+  max-width: 1000px;
+  padding-left: 1em;
+
+
+  img {
+    display: block;
+    margin: 1em 0;
+  }
+}
+
+.characters {
+  align-items: center;
+  display: flex;
+  margin: 1em auto;
+  max-width: 1000px;
+
+  #next {
+    color: currentColor;
+    font-size: 15px;
+
+    &:after {
+      content: ' »';
+    }
+  }
+
+  #headshots {
+    display: block;
+    height: 100px;
+    margin-right: 1em;
+    overflow: hidden;
+    width: 100px;
+  }
+}
