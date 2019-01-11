@@ -1,6 +1,6 @@
 {
   "name": "@wearebraid/rafscroll",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Eased scrolling (smooth scroll) using requestAnimationFrame",
   "main": "lib/rafscroll.js",
   "scripts": {
