@@ -3,7 +3,7 @@
 
 # Rafscroll
 
-Rafscroll is a small library (`<3kb` esm or `<4kb` umd) to scroll windows and
+Rafscroll is a small library (`<3kb` esm or `<4kb` umd) to smooth scroll windows and
 DOM elements by using a browser’s native `requestAnimationFrame`, ensuring
 optimal scrolling without impacting site performance. Rafscroll can operate on
 both the x and y axis with various easing functions.
