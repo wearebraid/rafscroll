@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.com/wearebraid/rafscroll.svg?branch=master)](https://travis-ci.com/wearebraid/rafscroll)
+![GitHub file size in bytes](https://img.shields.io/github/size/wearebraid/rafscroll/dist/rafscroll.esm.js?color=g)
+
 # Rafscroll
 
 Rafscroll is a small library (`<3kb` esm or `<4kb` umd) to scroll windows and
