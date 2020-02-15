@@ -11,12 +11,12 @@ class RequestAnimationFrameScroll {
    * @param {DOMElement} el
    * @param {Object} options
    */
-  constructor (el, options = {}) {
+  constructor (options = {}) {
     this.options = Object.assign({
       duration: 500,
       easing: 'quadratic'
     }, options)
-    this.el = el
+    this.el = this.options.el
     this._ticking = false
     this.scrolls = {
       x: {},
@@ -37,7 +37,7 @@ class RequestAnimationFrameScroll {
       this._promise = new Promise((resolve, reject) => {
         this._complete = resolve
         this._ticking = window.performance.now()
-        this._tick(this._ticking)
+        this.tick(this._ticking)
       })
     }
     return this._promise
@@ -138,14 +138,14 @@ class RequestAnimationFrameScroll {
    * @param {Function} ticker
    * @return {null}
    */
-  _tick (ticker) {
+  tick (ticker) {
     if (this._ticking) {
       window.requestAnimationFrame(() => {
         Object.keys(this.scrolls).map(axis => {
-          return this._setprop(this.scrolls[axis], ticker)
+          return this.setProp(this.scrolls[axis], ticker)
         })
-        this._tick(window.performance.now())
-        if (this._expired(ticker)) {
+        this.tick(window.performance.now())
+        if (this.isExpired(ticker)) {
           this._ticking = false
         }
       })
@@ -160,7 +160,7 @@ class RequestAnimationFrameScroll {
    * @param {Number} ticker
    * @return {Boolean}
    */
-  _expired (ticker) {
+  isExpired (ticker) {
     let y = !this.scrolls.y.timeEnd || this.scrolls.y.timeEnd < ticker
     let x = !this.scrolls.x.timeEnd || this.scrolls.x.timeEnd < ticker
     return y && x
@@ -173,7 +173,7 @@ class RequestAnimationFrameScroll {
    * @param {Object} scroll
    * @param {Number} ticker 
    */
-  _setprop (scroll, ticker) {
+  setProp (scroll, ticker) {
     if (!scroll.timeEnd) {
       return false
     }
@@ -218,9 +218,13 @@ class RequestAnimationFrameScroll {
   }
 }
 
-export default function (el) {
-  if (typeof window !== 'undefined' && !el) {
+export default function (el, options) {
+  if (el && typeof el === 'object' && !(el instanceof Element) && !options) {
+    options = el
+    el = (options.el instanceof Element) ? options.el : null
+  }
+  if (typeof window !== 'undefined' && !(el instanceof Element)) {
     el = document.documentElement || document.body
   }
-  return new RequestAnimationFrameScroll(el)
+  return new RequestAnimationFrameScroll(Object.assign(options || {}, { el }))
 }
