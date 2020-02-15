@@ -17,9 +17,9 @@ _Note: This readme assumes you are using a build tool like [webpack](https://web
 First install from NPM or yarn:
 
 ```sh
-npm install @wearebraid/braid
+npm install @braid/rafscroll
 - or -
-yarn add @wearebraid/braid
+yarn add @braid/rafscroll
 ```
 
 Then import/require the library in your front end code:
@@ -81,7 +81,7 @@ function ({current, duration, posDelta, posStart}) {
 
 ## Sponsor
 
-Rafscroll is written and maintained by [Braid LLC](https://www.wearebraid.braid),
+Rafscroll is written and maintained by [Braid LLC](https://www.wearebraid.com),
 and offered freely under an MIT license.
 
-[<img src="https://assets.wearebraid.braid/sig.png" title="Written and maintained by Braid LLC" alt="Braid LLC" width="150" height="44">](https://www.wearebraid.braid)
+[<img src="https://assets.wearebraid.com/sig.png" title="Written and maintained by Braid LLC" alt="Braid LLC" width="150" height="44">](https://www.wearebraid.com)
