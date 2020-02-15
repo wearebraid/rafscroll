@@ -46,8 +46,8 @@ class RequestAnimationFrameScroll {
   /**
    * Scroll the X coordinate.
    *
-   * @param {Number} target 
-   * @param {Number} duration 
+   * @param {Number} target
+   * @param {Number} duration
    */
   scrollLeft (target, duration) {
     return this.createScroll(target, duration, 'x')
@@ -56,8 +56,8 @@ class RequestAnimationFrameScroll {
   /**
    * Scroll the Y coordinate.
    *
-   * @param {Number} target 
-   * @param {Number} duration 
+   * @param {Number} target
+   * @param {Number} duration
    */
   scrollTop (target, duration) {
     return this.createScroll(target, duration)
@@ -90,7 +90,7 @@ class RequestAnimationFrameScroll {
 
   /**
    * Get the easing function.
-   * 
+   *
    * @return {Function}
    */
   getEasing () {
@@ -171,7 +171,7 @@ class RequestAnimationFrameScroll {
    * either the top or left properties.
    *
    * @param {Object} scroll
-   * @param {Number} ticker 
+   * @param {Number} ticker
    */
   setProp (scroll, ticker) {
     if (!scroll.timeEnd) {
@@ -188,7 +188,7 @@ class RequestAnimationFrameScroll {
   /**
    * Linear easing function.
    *
-   * @param {Object} object 
+   * @param {Object} object
    */
   _linear ({current, duration, posDelta, posStart}) {
     return (current / duration) * posDelta + posStart
@@ -197,7 +197,7 @@ class RequestAnimationFrameScroll {
   /**
    * Quadratic easing function.
    *
-   * @param {Object} object 
+   * @param {Object} object
    */
   _quadratic ({current, duration, posDelta, posStart}) {
     var r = current / (duration / 2)
@@ -211,11 +211,25 @@ class RequestAnimationFrameScroll {
   /**
    * No easing function.
    *
-   * @param {Object} object 
+   * @param {Object} object
    */
   _noease ({current, duration, posDelta, posStart}) {
     return posDelta + posStart
   }
+}
+
+/**
+ * Determine the root element to scroll in the browser
+ */
+function getDefaultScrollElement () {
+  if ('scrollingElement' in document) {
+    return document.scrollingElement
+  }
+  const initial = document.documentElement.scrollTop
+  document.documentElement.scrollTop = initial + 1
+  const updated = document.documentElement.scrollTop
+  document.documentElement.scrollTop = initial
+  return (updated > initial ? document.documentElement : document.body)
 }
 
 export default function (el, options) {
@@ -224,7 +238,7 @@ export default function (el, options) {
     el = (options.el instanceof Element) ? options.el : null
   }
   if (typeof window !== 'undefined' && !(el instanceof Element)) {
-    el = document.documentElement || document.body
+    el = getDefaultScrollElement()
   }
   return new RequestAnimationFrameScroll(Object.assign(options || {}, { el }))
 }
